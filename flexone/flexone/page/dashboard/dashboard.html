@@ -1,0 +1,131 @@
+<section class="content" style="background:rgb(166, 245, 208)">
+    <!-- Info boxes -->
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-aqua"><i class="fa fa-shopping-cart"></i></span>
+
+          <div class="info-box-content">
+          <span class="info-box-text" id="total_sales_name"></span>
+          <span class="info-box-number" id="total_sales_value"></span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-red"><i class="fa fa-heart"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text" id="total_collection_name"></span>
+            <span class="info-box-number" id="total_collection_value"></span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
+
+      <!-- fix for small devices only -->
+      <div class="clearfix visible-sm-block"></div>
+
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-green"><i class="fa fa-usd"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text" id="due_amount_name"></span>
+            <span class="info-box-number" id="due_amount_value"></span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text" id="current_date_name"></span>
+            <span class="info-box-number" id="current_date_value"></span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <section class="col-lg-7 connectedSortable ui-sortable">
+            <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title" id="profit_and_loss_chart_title" ></h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body" >
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="chart">
+                        <!-- Sales Chart Canvas -->
+                        <div id="profit_and_loss_chart" style="height: 400px; width: 613;" width="613" height="400"></div>
+                      </div>
+                      <!-- /.chart-responsive -->
+                    </div>
+                  </div>          <!-- /.row -->
+                </div>
+              </div>
+              <div class="box box-success">
+                  <div class="box-header with-border">
+                    <h3 class="box-title" id="outstanding_customer_header"></h3>
+                  </div>
+                  <!-- /.box-header -->
+                  <div class="box-body">
+                    <div class="row">
+                      <div class="class="col-md-12">
+                       
+                        <div class="chart">
+                        <!-- Sales Chart Canvas -->
+                        <div id="top_10_customer_outstanding" style="height: 400px; width: 613;" width="613" height="400"></div>
+                      </div>
+                      <!-- /.chart-responsive -->
+                    
+                        </div>
+                      </div>
+             
+                      <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                  </div>
+                </section>
+                  <section class="col-lg-5 connectedSortable ui-sortable">
+                      <div class="box box-widget">
+                      
+                          <div class="box-body" >
+                              <div id="email-digest"></div>
+                             </div>
+                            </div>
+                      <div class="box box-widget" >
+                          <div class="box-header with-border">
+                          <h3 class="box-title" id="moving_item_header"></h3>
+                          </div>
+                          <!-- /.box-header -->
+                          <div class="box-body">
+                                        <div class="table table-bordered leaderboard-list"></div>
+                          </div>
+                    
+                    </div>
+
+                    </section>
+
+
+         
+
+
+
+    </div>
+</section>
