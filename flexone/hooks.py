@@ -72,7 +72,7 @@ website_context = {
 # Installation
 # ------------
 
-before_install = "flexone.install.before_install"
+#before_install = "flexone.install.before_install"
 # after_install = "flexone.install.after_install"
 
 # Desk Notifications
