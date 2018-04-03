@@ -134,6 +134,10 @@ li.user-progress .progress-chart {
   font-weight: 100;
   overflow: hidden;
 }
+.frappe-rtl .main-header .logo{
+   float: right;
+
+}
 .main-header .logo .logo-lg {
   display: block;
 }
@@ -358,6 +362,9 @@ li.user-progress .progress-chart {
  padding: 6px 6px 6px 14px;
  display: block
 }
+.frappe-rtl .main-sidebar .sidebar-menu>li>a {
+ padding: 6px 14px 6px 6px;
+}
 .main-sidebar .sidebar-menu>li>a>.fa,.main-sidebar .sidebar-menu>li>a>.glyphicon,.main-sidebar .sidebar-menu>li>a>.ion {
 
   font-size: 18px;
@@ -479,6 +486,11 @@ li.user-progress .progress-chart {
   margin-left:70px !important;
   z-index:840
  }
+ .frappe-rtl.sidebar-mini.sidebar-collapse .content-wrapper, .frappe-rtl.sidebar-mini.sidebar-collapse .right-side, .frappe-rtl.sidebar-mini.sidebar-collapse .main-footer {
+  margin-right:70px !important;
+  margin-left:0px !important;
+  z-index:840
+ }
  .sidebar-mini.sidebar-collapse .main-sidebar {
   -webkit-transform:translate(0, 0);
   -ms-transform:translate(0, 0);
@@ -490,6 +502,7 @@ li.user-progress .progress-chart {
   background-color: #fff;
   top: 30px;
  }
+  .frappe-rtl.sidebar-mini.sidebar-collapse .main-sidebar { width:70px !important;}
  .sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li {
   position:relative;
   margin: 10px 0 10px 0;
@@ -520,6 +533,12 @@ li.user-progress .progress-chart {
   border-radius: 0 25px 25px 0;
   text-align: left;
  }
+  .frappe-rtl.sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li:hover>a>span:not(.pull-right),.frappe-rtl.sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li:hover>.treeview-menu {
+    right: 30px;
+    left: unset;
+    border-radius: 25px 0 0 0px;
+        text-align: right;
+}
  .sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li:hover>a>span {
   top: 0;
   width: 240px;
@@ -529,7 +548,13 @@ li.user-progress .progress-chart {
   font-size: 14px;
   font-weight: bold;
  }
-
+ .frappe-rtl.sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li:hover>a>span:not(.pull-right){
+     border-radius: 25px 0 0 25px;
+ }
+ .frappe-rtl.sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li:hover>a>span {
+    padding: 15px 55px 15px 0px;
+    border-radius: 25px 0 0 25px;
+ }
  .sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li:hover>a> .treeview-single {
   padding: 15px 35px 15px 45px;
   width: auto;
@@ -554,6 +579,15 @@ li.user-progress .progress-chart {
     padding: 25px 0 15px 0;
     z-index: 1;
  }
+  .frappe-rtl.sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li:hover>.treeview-menu {
+  top: 22px;
+    margin-right: 40px;
+     margin-left: 0px;
+    border-radius: 0px 0px 0px 25px;
+    width: 200px;
+    padding: 15px 0 25px 0;
+    z-index: 1;
+ }
  .sidebar-mini.sidebar-collapse .main-sidebar .user-panel>.info,.sidebar-mini.sidebar-collapse .sidebar-form,.sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li>a>span,.sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li>.treeview-menu,.sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li>a>.pull-right,.sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu li.header {
   display:none !important;
   -webkit-transform:translateZ(0)
@@ -568,11 +602,19 @@ li.user-progress .progress-chart {
   font-size:17px;
   border-radius: 0 0 15px 0;
  }
+  .frappe-rtl.sidebar-mini.sidebar-collapse .main-header .logo>.logo-mini {
+
+  	border-radius: 0 0 0 15px;
+  }
  .sidebar-mini.sidebar-collapse .main-header .logo>.logo-lg {
   display:none
  }
  .sidebar-mini.sidebar-collapse .main-header .navbar {
   margin-left:65px
+ }
+ .frappe-rtl.sidebar-mini.sidebar-collapse .main-header .navbar {
+  margin-right:65px;
+  margin-left:0px !important; 
  }
 }
 .main-sidebar .sidebar-menu,.main-sidebar .user-panel,.main-sidebar .sidebar-menu>li.header {

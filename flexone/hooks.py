@@ -49,8 +49,8 @@ page_js = {"modules" : "public/js/flexone_hide_help.js"}
 # Home Pages
 # ----------
 website_context = {
-	"favicon": 	"/assets/flexone/images/favicon.png",
-	"splash_image": "/assets/flexone/images/icon.svg"
+	"favicon": 	"/assets/flexone/images/icon.png",
+	"splash_image": "/assets/flexone/images/logo.jpg"
 }
 # application home page (will override Website Settings)
 # home_page = "login"
