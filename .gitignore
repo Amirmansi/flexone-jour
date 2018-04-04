@@ -1,17 +1,6 @@
+.DS_Store
 *.pyc
-*.py~
-*.comp.js
-*.DS_Store
-locale
-.wnf-lang-status
 *.swp
 *.egg-info
-dist/
-build/
+tags
 flexone/docs/current
-.vscode
-node_modules
-
-
-# Not Recommended, but will remove once webpack ready
-package-lock.json
