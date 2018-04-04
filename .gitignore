@@ -1,6 +1,6 @@
 .DS_Store
 *.pyc
-*.swp
 *.egg-info
+*.swp
 tags
 flexone/docs/current

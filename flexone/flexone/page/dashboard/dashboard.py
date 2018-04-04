@@ -52,12 +52,9 @@ def profit_and_loss_chart():
 def total_sales():
 	company = erpnext.get_default_company()
 	start_date = frappe.db.sql("""select min(posting_date) from `tabSales Invoice` where company = %s""", (company))[0][0] or today()
-	custom_filter = {'from_date': start_date ,'to_date': today(),'company': company}
-	report = frappe.get_doc('Report', "Sales Register") 
-	columns, data = report.get_data(filters = custom_filter, as_dict=True)
-	sales_abbr="Sales - {}".format(frappe.db.get_value('Company', company, 'abbr'))	
-	list_of_total_sales = [i[sales_abbr] for i in data if sales_abbr in i]
-	return 'Total Sales',list_of_total_sales[-1]
+	to_date=today()
+	data=frappe.db.sql("""SELECT sum(`tabSales Invoice`.base_net_total) AS sum FROM `tabSales Invoice` WHERE `tabSales Invoice`.docstatus = 1 and company = %s and posting_date >= %s and posting_date <= %s  """, (company,start_date,to_date))[0][0] 
+	return 'Total Sales',data
 
 @frappe.whitelist()
 def due_amount():
