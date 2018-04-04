@@ -728,3 +728,6 @@ fieldset[disabled] .btn-primary.active {
 .layout-main-section .module-body .module-section:nth-child(odd){background-color:#7b6c40; color: #fff;}
 
 .layout-main-section .module-body .module-section:nth-child(odd) .module-section-link{color:#fff;}
+
+.leaderboard-list .list-headers .list-item .leaderboard-item:nth-child(2){text-align:right;}
+.leaderboard-list .list-item{padding-right: 15px;}
