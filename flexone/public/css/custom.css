@@ -730,4 +730,5 @@ fieldset[disabled] .btn-primary.active {
 .layout-main-section .module-body .module-section:nth-child(odd) .module-section-link{color:#fff;}
 
 .leaderboard-list .list-headers .list-item .leaderboard-item:nth-child(2){text-align:right;}
+.frappe-rtl .leaderboard-list .list-headers .list-item .leaderboard-item:nth-child(2){text-align:left;}
 .leaderboard-list .list-item{padding-right: 15px;}
