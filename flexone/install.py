@@ -8,15 +8,8 @@ import frappe.defaults
 def set_home_page():
     user = frappe.session.user
     roles = frappe.get_roles(user)
-    #if "F1" in roles:
-       # frappe.local.response["home_page"] = "desk#business-dashboard" 
+
 def on_session_creation(login_manager):
-    #page = frappe.get_doc('Page', 'dashboard')
-    #if page.is_permitted():
-    #    print("yes")
-    #    frappe.local.response["home_page"] =  "/desk#dashboard"
-    #else:
-    #frappe.local.response["home_page"] = info.home_page_link or "/desk"
 	info = frappe.db.get_value("User", frappe.local.session_obj.user,
 			["home_page_link"], as_dict=1)
 

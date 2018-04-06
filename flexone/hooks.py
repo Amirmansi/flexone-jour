@@ -19,11 +19,7 @@ app_include_css = [
     "/assets/flexone/css/flexone.css",
     "/assets/flexone/css/skin-origin.css",
     "/assets/flexone/css/custom.css",
-    "/assets/flexone/css/temp.css",
-        #"/assets/flexone/css/ionicons.min.css",
-        #"/assets/flexone/css/AdminLTE.min.css",
-        #"/assets/flexone/css/_all-skins.min.css",
-    
+    "/assets/flexone/css/temp.css",    
 ]
 app_include_js = [
     "/assets/flexone/js/flexone.js",
