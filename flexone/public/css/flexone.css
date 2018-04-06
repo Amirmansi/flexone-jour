@@ -3,7 +3,7 @@
  * ----------------------
  */
 
-.main-header {
+ .main-header {
   position: relative;
   max-height: 100px;
   z-index: 7;
@@ -134,7 +134,6 @@ li.user-progress .progress-chart {
   font-weight: 100;
   overflow: hidden;
 }
-
 .main-header .logo .logo-lg {
   display: block;
 }
@@ -359,7 +358,6 @@ li.user-progress .progress-chart {
  padding: 6px 6px 6px 14px;
  display: block
 }
-
 .main-sidebar .sidebar-menu>li>a>.fa,.main-sidebar .sidebar-menu>li>a>.glyphicon,.main-sidebar .sidebar-menu>li>a>.ion {
 
   font-size: 18px;
@@ -481,11 +479,10 @@ li.user-progress .progress-chart {
   margin-left:70px !important;
   z-index:840
  }
- 
  .sidebar-mini.sidebar-collapse .main-sidebar {
   -webkit-transform:translate(0, 0);
   -ms-transform:translate(0, 0);
-  -o-transform:translate(0, 0);
+  -o-transform:translate(0, 0); 
   transform:translate(0, 0);
   width:58px !important;
   z-index:6;
@@ -493,7 +490,6 @@ li.user-progress .progress-chart {
   background-color: #fff;
   top: 30px;
  }
-  
  .sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li {
   position:relative;
   margin: 10px 0 10px 0;
@@ -501,7 +497,10 @@ li.user-progress .progress-chart {
  .sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li>a {
   margin-right:0
  }
- 
+ .sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li>a:hover, a:focus {
+  margin-right: 0;
+  text-decoration: none;
+}
  .sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li>a>span {
   border-top-right-radius:4px
  }
@@ -522,7 +521,6 @@ li.user-progress .progress-chart {
   border-radius: 0 25px 25px 0;
   text-align: left;
  }
-  
  .sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li:hover>a>span {
   top: 0;
   width: 240px;
@@ -557,7 +555,6 @@ li.user-progress .progress-chart {
     padding: 25px 0 15px 0;
     z-index: 1;
  }
-  
  .sidebar-mini.sidebar-collapse .main-sidebar .user-panel>.info,.sidebar-mini.sidebar-collapse .sidebar-form,.sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li>a>span,.sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li>.treeview-menu,.sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu>li>a>.pull-right,.sidebar-mini.sidebar-collapse .main-sidebar .sidebar-menu li.header {
   display:none !important;
   -webkit-transform:translateZ(0)
@@ -572,14 +569,12 @@ li.user-progress .progress-chart {
   font-size:17px;
   border-radius: 0 0 15px 0;
  }
-  
  .sidebar-mini.sidebar-collapse .main-header .logo>.logo-lg {
   display:none
  }
  .sidebar-mini.sidebar-collapse .main-header .navbar {
   margin-left:65px
  }
- 
 }
 .main-sidebar .sidebar-menu,.main-sidebar .user-panel,.main-sidebar .sidebar-menu>li.header {
  white-space:nowrap;
@@ -630,6 +625,5 @@ li.user-progress .progress-chart {
 .help-link {
   display: none !important;
 }
-
 
 
