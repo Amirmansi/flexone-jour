@@ -23,7 +23,7 @@ def add_remark_in_journal_entry_account(self,method):
 	gl_entry=frappe.get_list('GL Entry', filters={'voucher_no': self.name}, fields=['name', 'remarks', 'account'])
 	for d in gl_entry:
 		for jv_acct in self.get("accounts"):
-			if (jv_acct.account==d.account and jv_acct.remark != None):
+			if ((jv_acct.account==d.account) and (jv_acct.remark)):
 				gl_matched_entry = frappe.get_doc('GL Entry', d.name)
 				gl_matched_entry.flags.ignore_permissions = 1
 				df = frappe.get_meta('GL Entry').get_field("remarks")
