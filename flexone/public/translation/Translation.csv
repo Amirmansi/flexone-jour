@@ -1,0 +1,189 @@
+Data Import Template,,,,
+Table:,Translation,,,
+,,,,
+,,,,
+Notes:,,,,
+Please do not change the template headings.,,,,
+First data column must be blank.,,,,
+"If you are uploading new records, leave the ""name"" (ID) column blank.",,,,
+"If you are uploading new records, ""Naming Series"" becomes mandatory, if present.",,,,
+Only mandatory fields are necessary for new records. You can delete non-mandatory columns if you wish.,,,,
+"For updating, you can update only selective columns.",,,,
+You can only upload upto 5000 records in one go. (may be less in some cases),,,,
+,,,,
+DocType:,Translation,,,
+Column Labels:,ID,Language,Source Text,Translated Text
+Column Name:,name,language,source_name,target_name
+Mandatory:,Yes,No,No,No
+Type:,Data (text),Link,Code,Code
+Info:,,Valid Language,,
+Start entering data below this line,,,,
+,"""2b561e16aa""",ar,Flex Soft,ؤسسة النظم المرنة لتقنية المعلومات
+,"""b3d48f68bf""",en,Payment Entry,Payment Voucher
+,"""ba0898a8f0""",ar,Submitted,معتمدة
+,"""31aaf8e8b1""",ar,Credit Note Issued,تسوية
+,"""c0446450f1""",ar,Return,مرتجع
+,"""b2024605af""",ar,Customer Group,الفروع
+,"""5ae62b8cb4""",ar,Sales Partner,مندوب مبيعات
+,"""c37c5830a7""",ar,Sales Register,تقرير المبيعات والمرتجعات
+,"""a62258003f""",ar,Sales Order,امر بيع
+,"""0ba7bf3739""",ar,Entry Type,نوع القيد
+,"""2bd953d976""",ar,Is Opening Entry,هل هو  قيد افتتاحي
+,"""7c3143b640""",ar,Debit To,مدين الي :
+,"""218b3ce326""",ar,Advance amount,المبلغ المقدم
+,"""10b7ee5415""",ar,Remarks,التعليقات
+,"""c2ae6e0143""",ar,ADVANCE PAYMENTS,الدفعات المقدمة
+,"""f4b84f6570""",ar,Outstanding Amount,المبلغ المعلق
+,"""6f10089813""",ar,Rounded Total,الاجمالي المقرب
+,"""f34a2aec0d""",ar,"Available Qty at Warehouse
+",الكمية المتاحة في المخزن
+,"""033f95bb34""",ar,"Available Batch Qty at Warehouse
+",الكمية المتاحة من الدفعة في المخزن
+,"""550e26b239""",ar,Allow Zero Valuation Rate,السماح بمعدل تقييم صفر
+,"""4a966eb48b""",ar,Income Account,حساب الدخل
+,"""c4712387ac""",ar,Amount,المبلغ
+,"""e3cd6a03e6""",ar,Rate,السعر
+,"""c1b25adc54""",ar,Price List Rate,سعر قائمة الأسعار
+,"""f3ca279a4c""",ar,Qty as per Stock UOM,الكمية بناء علي وحدة قياس المنتج
+,"""04dcb6fcac""",ar,UOM Conversion Factor,وحدة قياس معامل التحويل
+,"""4522720ea7""",ar,Stock UOM,وحدة قياس المنتج
+,"""15f61b95cf""",ar,Pending SO Items For Purchase Request,تقرير تفصيلي أوامر الشراء
+,"""54f1dfe49f""",ar,Available Stock for Packing Items,المخزون المتاح للتعبئة
+,"""a3014915d7""",ar,Sales Person-wise Transaction Summary,ملخص المبيعات علي مستوي مندوب المبيعات
+,"""9b3b893349""",ar,Contact,الأسماء
+,"""94d9a60b9d""",ar,Sales Person,مندوب المبيعات
+,"""be427f5c44""",ar,Sales Funnel,دورة المبيعات
+,"""113e3c98ce""",ar,Itemwise Recommended Reorder Level,اعادة الطلب علي مستي الصنف
+,"""78e29a45e9""",ar,Batch Item Expiry Status,حالة تاريخ صلاحية الصنف علي مستوي الدفعة
+,"""731534bbb1""",ar,Batch-Wise Balance History,رصيد المخزون علي مستوي الدفعات
+,"""a8879c6b0c""",ar,Requested Items To Be Transferred,الأصناف المطلوبة للتحويل
+,"""9e4b0e7e05""",ar,Purchase Order Items To Be Received,أوامر الشراء الغير مستلمة
+,"""434e64da55""",ar,Ordered Items To Be Delivered,أوامر البيع الغير مسلمة
+,"""797145c9a2""",ar,Item Attribute,خصائص الصنف
+,"""d36321d40a""",ar,Unit of Measure (UOM),وحدات القياس
+,"""82340ebfc1""",ar,Landed Cost Voucher,معالج التكلفة النهائية
+,"""fdc4644aed""",ar,Packing Slip,قسيمة التعبئة
+,"""5e37d12618""",ar,Serial No Warranty Expiry,نهاية ضمان الرقم المتسلسل
+,"""2707fed18e""",ar,Serial No Status,حالة الرقم المتسلسل
+,"""98d0ad6bd2""",ar,Serial No Service Contract Expiry,تاريخ نهاية عقد الصيانة بناء علي الرقم المتسلسل
+,"""4bb928ebce""",ar,Serial No,الرقم المتسلسل
+,"""6f3c9562cf""",ar,Stock Ageing,تقرير عمر المخزون
+,"""d23ee225fe""",ar,Customer Credit Balance,تقرير الحد الائتماني وارصدة العملاء
+,"""9d4686d25c""",ar,Accounts Receivable Summary,ملخص حسابات القبض
+,"""1058a0d697""",ar,Item-wise Purchase Register,تقرير المشتريات علي مستوي الصنف
+,"""a0146dc762""",ar,Trial Balance for Party,ميزان المراجعة للعملاء والموردين
+,"""1374c78b6d""",ar,Asset Depreciation Ledger,دفتر استاذ اهلاك الأصول
+,"""9fb6bfb570""",ar,Payment Gateway Account,حساب بوابة الدفع
+,"""bf7b941932""",ar,Received Items To Be Billed,الأصناف المستلمة الغير مفوترة
+,"""439759d752""",ar,Purchase Order Items To Be Billed,أوامر الشراء الغير مفوترة
+,"""d46b66a369""",ar,Delivered Items To Be Billed,سندات التسليم الغير مفوترة
+,"""990ac2f6ef""",ar,Ordered Items To Be Billed,أوامر البيع الغير مفوترة
+,"""e7a1c6814a""",ar,To Bill,العمليات للفوترة
+,"""5d8da26fb3""",ar,Budget Variance Report,تقرير فروقات الموازنة
+,"""b55162c827""",ar,Period Closing Voucher,قيد اغلاق الفترة
+,"""2f2f1618ad""",ar,Purchase Taxes and Charges Template,قالب الضرائب علي المشتريات
+,"""0484228ec2""",ar,Sales Taxes and Charges Template,قالب الضرائب علي المبيعات
+,"""25eb4fd4d8""",ar,Match Payments with Invoices,تسوية دفعات العملاء مع الفواتير
+,"""1505ca3903""",ar,Update Bank Transaction Dates,تحديث تاريخ العمليات البنكية
+,"""de9de795c4""",ar,POS,نقاط البيع
+,"""d9339808b3""",ar,Production Planning Tool,أداة تخطيط الانتاج
+,"""f845a5267b""",ar,Operation,العمليات الانتاجية
+,"""a11758d0f0""",ar,Issued Items Against Production Order,الاصناف الصادرة مقابل امر انتاج
+,"""7f65d8e821""",ar,Production Orders in Progress,اوامر الانتاج قيد العمل
+,"""7d3f41c938""",ar,BOM Update Tool,اداة تحديث جداول المواد
+,"""cdf197548e""",ar,BOM Browser,تصفح جداول المواد
+,"""9fed98f694""",ar,Bill of Materials,جدول المواد
+,"""8aff5892b2""",ar,Show tags,إظهار الوسوم
+,"""be86716f98""",ar,Tags,الوسوم
+,"""1785bba00c""",ar,Assigned To Me,أسندت لي
+,"""74ff78419d""",ar,No Tags,لاتوجد وسوم
+,"""c97c3864c2""",ar,BOM Stock Report,تقرير مخزون جدول المواد
+,"""c8d2740342""",ar,BOM Search,البحث في جداول المواد
+,"""f64074af61""",ar,Materials Required (Exploded),الأصناف المطلوبة
+,"""c968012022""",ar,Price List,سعر قائمة الشراء
+,"""bb487ac9e7""",ar,Last Purchase Rate,اخر سعر شراء
+,"""2406aa41e6""",ar,Valuation Rate,سعر التقييم الافتراضي
+,"""df8ddbbd69""",ar,Receive,استلام
+,"""167aa38bb5""",ar,Party Type,نوع الحساب
+,"""ca5a56a92d""",ar,Equity,حقوق ملكية
+,"""c52fc2b954""",ar,Chargeable,خصوم
+,"""a7bc6fd8e0""",ar,Employment Type,نوع التوظيف
+,"""e15a077a74""",ar,Is Group,هل هو حساب رئيسي
+,"""bb0a7e2d88""",ar,Add Child,اضافة حساب
+,"""470fb5f86a""",ar,New Company,شركة جديدة
+,"""1b2d200bdc""",ar,Round Off,خصم
+,"""bae521dbbe""",ar,Depreciation,اهلاك
+,"""00421a81c0""",ar,Stock Received But Not Billed,المخزون المستلم الغير مفوتر
+,"""d807444fd5""",ar,New Account Name,اسم الحساب الجديد
+,"""ced8298dd9""",ar,Dr,مدين
+,"""ddecd71673""",ar,Cr,دائن
+,"""143d329b6b""",ar,Posting Date,تاريخ الادخال
+,"""40f7a3bee6""",ar,Credit,دائن
+,"""889266eb98""",ar,Reference Date, تاريخ المرجع
+,"""0955d41385""",ar,Pay To / Recd From,دفع الي / استلام من
+,"""ee3fe6315b""",ar,Is Opening,هل هو افتتاحي
+,"""dd7cdc9ac4""",ar,Reference Type,نوع المرجع
+,"""3d43e0c26f""",ar,Is Advance,هل هو دفعة مقدمة
+,"""fecf87192b""",ar,Insert Above,ادراج بالأعلي
+,"""d3182ea335""",ar,Excise Entry,قيد ضريبة
+,"""b7a41bd26f""",ar,Write Off Entry,قيد اطفاء
+,"""27723d1b78""",ar,Opening Entry,قيد افتتاحي
+,"""dee65cb428""",ar,Depreciation Entry,قيد اهلاك
+,"""4c43a223a3""",ar,Bank Entry,قيد بنكي
+,"""fd14ce3189""",ar,Process Payroll,معالجة الرواتب
+,"""4a51bce91d""",ar,Job Applicant,طلب وظيفة
+,"""eb71991855""",ar,Offer Letter,عرض وظيفي
+,"""8064a6293b""",ar,Recruitment,التوظيف
+,"""ea87da08fe""",ar,Expense Claims,مطالبة المصروف
+,"""6719d1b5dc""",ar,Expense Claim,مطالبة مصروف
+,"""18a4683291""",ar,Expense Claim Type,نوع مطالبة المصروف
+,"""f8df7e65e7""",ar,Employee Loan Management,ادارة سلف الموظفين
+,"""4ebd48780e""",ar,Loan Type,نوع السلفة
+,"""6dd7675bc9""",ar,Employee Loan Application,طلب سلفة موظف
+,"""a07d335d40""",ar,Employee Loan,سلفة موظف
+,"""2f13266928""",ar,Fleet Management,ادارة الاسطول
+,"""2c7c6396e0""",ar,Vehicle Log,سجل السيارة
+,"""b508bc795a""",ar,Designation,المسمي الوظيفي
+,"""6ba2fc761f""",ar,Fuel UOM,وحدة قياس الوقود
+,"""8d2698a8e1""",ar,Ctrl+enter to save,Ctrl+enter للحفظ
+,"""e50f806bfe""",ar,Reports,التقارير
+,"""7102ddd0c7""",ar,Balance,رصيد
+,"""3c29420b3a""",ar,Salutation,البادئة
+,"""1472195a30""",ar,The first Leave Approver in the list will be set as the default Leave Approver,اول شخص في القائمة سيكون هو الموافق علي الاجازة الافتراضي
+,"""d42e3909c4""",ar,School/University,المدرسة / الجامعة
+,"""25e64c59fc""",ar,Held On,تاريخ قبول الاستقالة
+,"""ce2bb20e27""",ar,Feedback,معلومات اخري
+,"""23f1ddebf6""",ar,Exit,تفاصيل الاستقالة
+,"""f6fadf00eb""",ar,Stock Summary,ملخص المخزون
+,"""0963ed7cd6""",ar,Print Heading,عنوان الطباعة
+,"""bd543b20ec""",ar,Letter Head,رأس الرسالة
+,"""629dd0c5be""",ar,Production Order,أمر انتاج
+,"""c35e5671cf""",ar,To Deliver and Bill,للتسليم والفوترة
+,"""40a5bcc66b""",ar,Make,إجراء
+,"""aa0941e52b""",ar,Stock Qty,كمية المخزون
+,"""c58da3ba88""",ar,Project wise Stock Tracking,تتبع المشاريع علي مستوي المخزون
+,"""52eb1553c3""",ar,Balance Sheet,قائمة المركز المالي
+,"""e2d0f8332e""",ar,Accounts,أدارة الحسابات 
+,"""fc8cb21730""",ar,Manufacturing,أدارة التصنيع 
+,"""104fd6877a""",ar,Stock,أدارة المستودعات 
+,"""a14d3ff946""",ar,Human Resources,أدارة الموارد البشرية 
+,"""bc2a7c1424""",ar,Projects,أدارة المشاريع 
+,"""764e09974b""",ar,Buying,أدارة المشتريات 
+,"""9f978a112c""",ar,Selling,أدارة المبيعات 
+,"""3b51c8d0a1""",ar,Tools,ألادوات 
+,"""3852dfd8b8""",ar,DOCTYPE,نوع الوثيقة
+,"""897e5e1b9c""",ar,Accounts Receivable,حسابات العملاء
+,"""53227c2282""",ar,(Jan (Qty,كمية يناير
+,"""36eef2b440""",ar,Customer Acquisition and Loyalty,ولاء واكتساب العملاء
+,"""f619f8e8c1""",ar,Request for Quotation,طلب عرض سعر
+,"""df7fb6e79c""",ar,Supplier Quotation,عرض سعر مورد
+,"""69ce7f0105""",ar,Requested Items To Be Ordered,تقرير متابعة طلبات المواد
+,"""d5073bdab9""",ar,Salary Register,تقرير الرواتب الشهرية
+,"""3b63594eaf""",ar,Open,مفتوح
+,"""e3f60873f1""",ar,User Remark,التعليقات
+,"""b8bbfe7b10""",ar,Payment Entry,المدفوعات والمقبوضات
+,"""e1e6745dfb""",ar,Customer,عميل
+,"""d7721bdfa8""",ar,WRITE OFF,خصم الكسور
+,"""fa38e1b909""",ar,Tax ID No,الرقم الضريبي
+,"""6db42405d7""",ar,Customer Name,العميل
+,"""e579f161fc""",ar,Income,الدخل

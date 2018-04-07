@@ -74,7 +74,7 @@ website_context = {
 # ------------
 
 #before_install = "flexone.install.before_install"
-# after_install = "flexone.install.after_install"
+after_install = "flexone.api.import_arabic_translation"
 
 # Desk Notifications
 # ------------------

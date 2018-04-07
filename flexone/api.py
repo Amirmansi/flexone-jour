@@ -3,6 +3,14 @@ from __future__ import unicode_literals
 import frappe
 import frappe.defaults
 from frappe.utils import cstr, flt, fmt_money, formatdate, getdate
+from frappe.utils import (cint, split_emails, get_request_site_address, cstr,get_files_path, get_backups_path, get_url, encode)
+
+
+@frappe.whitelist()
+def import_arabic_translation():
+	from frappe.core.doctype.data_import.data_import import import_file_by_path
+	import_file_by_path(path=frappe.utils.get_bench_path()+'/apps/flexone/flexone/public/translation/Translation.csv',ignore_links=False, overwrite=True, submit=False, pre_process=None, no_email=True)
+
 
 def on_session_creation(login_manager):
 	info = frappe.db.get_value("User", frappe.local.session_obj.user,
@@ -11,12 +19,11 @@ def on_session_creation(login_manager):
 	frappe.local.response["home_page"] = info.home_page_link or "/desk"
 
 def add_remark_in_journal_entry_account(self,method):
-	frappe.msgprint(method)
 	gl_entry=[]
 	gl_entry=frappe.get_list('GL Entry', filters={'voucher_no': self.name}, fields=['name', 'remarks', 'account'])
 	for d in gl_entry:
 		for jv_acct in self.get("accounts"):
-			if (jv_acct.account==d.account):
+			if (jv_acct.account==d.account and jv_acct.remark != None):
 				gl_matched_entry = frappe.get_doc('GL Entry', d.name)
 				gl_matched_entry.flags.ignore_permissions = 1
 				df = frappe.get_meta('GL Entry').get_field("remarks")
