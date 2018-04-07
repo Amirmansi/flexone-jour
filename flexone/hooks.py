@@ -106,6 +106,12 @@ website_context = {
 #	}
 # }
 
+# copy journal_entry_account remark field to general ledger remark field
+doc_events = {
+    "Journal Entry": {
+        "on_submit": "flexone.api.add_remark_in_journal_entry_account",        
+    }
+}
 # Scheduled Tasks
 # ---------------
 
