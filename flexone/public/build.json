@@ -1,9 +1,10 @@
 {
     "css/flexone.min.css": [
-        "public/css/flexone.css",
+        "public/css/origintheme.css",
         "public/css/skin-origin.css",
         "public/css/custom.css",
-        "public/css/temp.css"
+        "public/css/temp.css",
+        "public/css/flexone_dashboard.css"
     ],
     "js/flexone.min.js": [
         "public/js/flexone.js",
