@@ -16,7 +16,7 @@ app_license = "MIT"
 
 # include js, css files in header of desk.html
 app_include_css = [
-    "/assets/flexone/css/flexone.css",
+    "/assets/flexone/css/origintheme.css",
     "/assets/flexone/css/skin-origin.css",
     "/assets/flexone/css/custom.css",
     "/assets/flexone/css/temp.css",
