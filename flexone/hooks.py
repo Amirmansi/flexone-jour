@@ -28,7 +28,7 @@ app_include_css = [
     
 ]
 app_include_js = [
-    "/assets/flexone/js/flexone.js",
+    "/assets/flexone/js/origintheme.js",
     "/assets/flexone/js/custom.js",
     "/assets/js/flexone-template.min.js",
 ]

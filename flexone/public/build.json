@@ -7,7 +7,7 @@
         "public/css/flexone_dashboard.css"
     ],
     "js/flexone.min.js": [
-        "public/js/flexone.js",
+        "public/js/origintheme.js",
         "public/js/custom.js"
     ],
     "js/flexone-template.min.js": [
