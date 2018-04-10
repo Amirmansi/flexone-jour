@@ -78,7 +78,7 @@ def top_moving_items():
 @frappe.whitelist()
 def weekly_data():
 	company = erpnext.get_default_company()
-	doc_name="Default Weekly Digest - "+company
-	html=get_digest_msg(doc_name)	
-	#print(html)
+	doc_name=frappe.get_all('Email Digest', filters={'company': company,'frequency':'Weekly','name':('like', '%%Default Weekly Digest%%')}, fields=['name'])
+	#doc_name="Default Weekly Digest - "+company
+	html=get_digest_msg(doc_name[0].name)	
 	return html
