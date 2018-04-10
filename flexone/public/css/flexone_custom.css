@@ -175,3 +175,9 @@
 .leaderboard-list .list-item {
 	padding-right: 15px;
 }
+
+.user-role input[type="checkbox"], input[type="checkbox"]{ width: auto; background-color:transparent; }
+.form-inner-toolbar {
+    background-color: white;
+    padding: 10px 5px 0px;
+}
