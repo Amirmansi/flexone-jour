@@ -11,7 +11,7 @@
    "collapsible_depends_on": null, 
    "columns": 0, 
    "creation": "2018-02-13 13:37:34.677154", 
-   "default": "/desk#List/Sales Order/List", 
+   "default": "/desk#home-page", 
    "depends_on": null, 
    "description": null, 
    "docstatus": 0, 
