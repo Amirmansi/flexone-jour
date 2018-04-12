@@ -33,7 +33,7 @@ make: function () {
 		me.render_widget("due_amount");
 		me.render_date_widget("current_date");
     me.render_chart("profit_and_loss_chart");
-	  me.render_pie_chart("top_10_customer_outstanding");
+	 // me.render_pie_chart("top_10_customer_outstanding");
 	  me.render_email_digest($container);
 	  me.render_item_table($container);
   },

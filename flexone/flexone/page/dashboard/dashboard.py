@@ -50,7 +50,10 @@ def total_sales():
 	start_date = frappe.db.sql("""select min(posting_date) from `tabSales Invoice` where company = %s""", (company))[0][0] or today()
 	to_date=today()
 	data=frappe.db.sql("""SELECT sum(`tabSales Invoice`.base_net_total) AS sum FROM `tabSales Invoice` WHERE `tabSales Invoice`.docstatus = 1 and company = %s and posting_date >= %s and posting_date <= %s  """, (company,start_date,to_date))[0][0] 
-	return 'Total Sales',data
+	if not data:
+		return 'Total Sales',0
+	else:
+		return 'Total Sales',data
 
 @frappe.whitelist()
 def due_amount():
