@@ -71,11 +71,3 @@ frappe.templates["company-name"] = '<span class="navbar-company" style="color:wh
 
 frappe.templates["material-icons"] = '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
 frappe.templates["poppins"] = '<link href="https://fonts.googleapis.com/css?family=Poppins:300,400" rel="stylesheet">';
-
-frappe.pages['modules'].refresh = function(wrapper){
-    frappe.after_ajax(()=>{
-		$('.dropdown-help').hide(); // or .remove();
-		$("a[data-name='Learn']").hide();
-        $("div.module-section-column:contains('Help')").addClass('hide');
-    });
-};
