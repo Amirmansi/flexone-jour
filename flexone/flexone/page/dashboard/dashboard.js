@@ -35,7 +35,7 @@ make: function () {
    	me.render_chart("profit_and_loss_chart");
 	  me.render_pie_chart("top_10_customer_outstanding");
 	  me.render_email_digest($container);
-	  //me.render_item_table($container);
+	  me.render_item_table($container);
   },
 
   render_email_digest: function($container) {
