@@ -60,11 +60,11 @@ def due_amount():
 	company = erpnext.get_default_company()
 	start_date = frappe.db.sql("""select min(posting_date) from `tabSales Invoice` where company = %s""", (company))[0][0] or today()
 	custom_filter = {'from_date': start_date ,'to_date': today(),'company': company}
-	report = frappe.get_doc('Report', "Sales Register") 
 	check_data=frappe.db.sql("""SELECT count(name) FROM `tabSales Invoice` WHERE `tabSales Invoice`.docstatus = 1 and company = %s and posting_date >= %s and posting_date <= %s  """, (company,start_date,today()))[0][0] 
 	if check_data==0:
 		return 'Due Amount',0
 	else:
+		report = frappe.get_doc('Report', "Sales Register") 
 		columns, data = report.get_data(filters = custom_filter, as_dict=True)
 		sales_abbr="Sales - {}".format(frappe.db.get_value('Company', company, 'abbr'))	
 		list_of_total_outstanding_amount = [i[_("Outstanding Amount")] for i in data if _("Outstanding Amount") in i]
