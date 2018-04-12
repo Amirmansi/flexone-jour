@@ -5,7 +5,7 @@ from __future__ import unicode_literals, print_function
 import frappe
 import erpnext
 from frappe.utils import add_to_date
-from frappe.utils import flt, today
+from frappe.utils import flt, today, cint
 from erpnext.utilities.page.leaderboard.leaderboard import get_leaderboard
 from erpnext.accounts.utils import get_fiscal_year, now
 import datetime
@@ -61,14 +61,14 @@ def due_amount():
 	start_date = frappe.db.sql("""select min(posting_date) from `tabSales Invoice` where company = %s""", (company))[0][0] or today()
 	custom_filter = {'from_date': start_date ,'to_date': today(),'company': company}
 	check_data=frappe.db.sql("""SELECT count(name) FROM `tabSales Invoice` WHERE `tabSales Invoice`.docstatus = 1 and company = %s and posting_date >= %s and posting_date <= %s  """, (company,start_date,today()))[0][0] 
-	if check_data==0:
+	if cint(check_data)==0:
 		return 'Due Amount',0
-	# else:
-	# 	report = frappe.get_doc('Report', "Sales Register") 
-	# 	columns, data = report.get_data(filters = custom_filter, as_dict=True)
-	# 	sales_abbr="Sales - {}".format(frappe.db.get_value('Company', company, 'abbr'))	
-	# 	list_of_total_outstanding_amount = [i[_("Outstanding Amount")] for i in data if _("Outstanding Amount") in i]
-	# 	return 'Due Amount',list_of_total_outstanding_amount[-1]
+	else:
+		report = frappe.get_doc('Report', "Sales Register") 
+		columns, data = report.get_data(filters = custom_filter, as_dict=True)
+		sales_abbr="Sales - {}".format(frappe.db.get_value('Company', company, 'abbr'))	
+		list_of_total_outstanding_amount = [i[_("Outstanding Amount")] for i in data if _("Outstanding Amount") in i]
+		return 'Due Amount',list_of_total_outstanding_amount[-1]
 
 @frappe.whitelist()
 def top_moving_items():
