@@ -81,11 +81,7 @@ def due_amount():
 def top_moving_items():
 	company = erpnext.get_default_company()
 	records = get_leaderboard("Item","Year",company, "total_sales_amount")
-	if records:
-		return records[:5]
-	else:
-		return
-
+	return records[:5]
 
 @frappe.whitelist()
 def weekly_data():
