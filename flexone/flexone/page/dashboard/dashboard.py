@@ -22,10 +22,12 @@ def total_collection():
 	custom_filter = {'from_date': start_date,'to_date': end_date,'company': company}
 	report = frappe.get_doc('Report', "Sales Payment Summary") 
 	columns, data = report.get_data(filters = custom_filter, as_dict=True)
-	print(data)
-	sales_abbr="Sales - {}".format(frappe.db.get_value('Company', company, 'abbr'))	
-	list_of_total_payments = [i[_("Payments")] for i in data if _("Payments") in i]
-	return 'Total Collection',list_of_total_payments[-1]
+	if not data:
+		return 'Total Collection',0
+	else:
+		sales_abbr="Sales - {}".format(frappe.db.get_value('Company', company, 'abbr'))	
+		list_of_total_payments = [i[_("Payments")] for i in data if _("Payments") in i]
+		return 'Total Collection',list_of_total_payments[-1]
 
 @frappe.whitelist()
 def profit_and_loss_chart():
@@ -57,10 +59,12 @@ def due_amount():
 	custom_filter = {'from_date': start_date ,'to_date': today(),'company': company}
 	report = frappe.get_doc('Report', "Sales Register") 
 	columns, data = report.get_data(filters = custom_filter, as_dict=True)
-	sales_abbr="Sales - {}".format(frappe.db.get_value('Company', company, 'abbr'))	
-	list_of_total_outstanding_amount = [i[_("Outstanding Amount")] for i in data if _("Outstanding Amount") in i]
-	print(data)
-	return 'Due Amount',list_of_total_outstanding_amount[-1]
+	if not data:
+		return 'Due Amount',0
+	else:	
+		sales_abbr="Sales - {}".format(frappe.db.get_value('Company', company, 'abbr'))	
+		list_of_total_outstanding_amount = [i[_("Outstanding Amount")] for i in data if _("Outstanding Amount") in i]
+		return 'Due Amount',list_of_total_outstanding_amount[-1]
 
 @frappe.whitelist()
 def top_moving_items():
