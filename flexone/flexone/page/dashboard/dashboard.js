@@ -55,6 +55,7 @@ make: function () {
 
   render_item_table: function($container) {
 	var me = this;
+	$("#moving_item_header").html(__("Top 5 Items"));
 
     frappe
       .call({
@@ -64,8 +65,7 @@ make: function () {
          if (!r.exc && r.message) {
 			me.message = null;
       $container.find(".leaderboard-list").html(me.render_list_view(r.message));
-      $("#moving_item_header").html(__("Top 5 Items"));
-
+     
 		}
 	});
   },

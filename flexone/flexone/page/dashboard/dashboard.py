@@ -88,5 +88,15 @@ def weekly_data():
 	company = erpnext.get_default_company()
 	doc_name=frappe.get_all('Email Digest', filters={'company': company,'frequency':'Weekly','name':('like', '%%Default Weekly Digest%%')}, fields=['name'])
 	#doc_name="Default Weekly Digest - "+company
-	html=get_digest_msg(doc_name[0].name)	
+	doc=frappe.get_doc('Email Digest', doc_name[0].name)
+	doc.income_year_to_date=0
+	doc.expense_year_to_date=0
+	doc.issue=0
+	doc.project=0
+	doc.calendar_events=0
+	doc.todo_list=0
+	doc.notifications=0
+	doc.add_quote=0
+	doc.save()
+	html=get_digest_msg(doc.name)	
 	return html
