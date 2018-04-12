@@ -62,8 +62,7 @@ def due_amount():
 	custom_filter = {'from_date': start_date ,'to_date': today(),'company': company}
 	report = frappe.get_doc('Report', "Sales Register") 
 	check_data=frappe.db.sql("""SELECT count(name) FROM `tabSales Invoice` WHERE `tabSales Invoice`.docstatus = 1 and company = %s and posting_date >= %s and posting_date <= %s  """, (company,start_date,today()))[0][0] 
-	print (check_data)
-	if not check_data:
+	if not check_data==0:
 		return 'Due Amount',0
 	else:
 		columns, data = report.get_data(filters = custom_filter, as_dict=True)
