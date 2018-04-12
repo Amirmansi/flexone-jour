@@ -4,7 +4,8 @@
         "public/css/skin-origin.css",
         "public/css/custom.css",
         "public/css/temp.css",
-        "public/css/flexone_dashboard.css"
+        "public/css/flexone_dashboard.css",
+        "public/css/flexone_custom.css"        
     ],
     "js/flexone.min.js": [
         "public/js/origintheme.js",

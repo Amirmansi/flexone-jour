@@ -4,6 +4,8 @@ import frappe
 import frappe.defaults
 from frappe.utils import cstr, flt, fmt_money, formatdate, getdate
 from frappe.utils import (cint, split_emails, get_request_site_address, cstr,get_files_path, get_backups_path, get_url, encode)
+from frappe import _
+from frappe.sessions import Session
 
 
 @frappe.whitelist()
@@ -16,7 +18,7 @@ def on_session_creation(login_manager):
 	info = frappe.db.get_value("User", frappe.local.session_obj.user,
 			["home_page_link"], as_dict=1)
 
-	frappe.local.response["home_page"] = info.home_page_link or "/desk"
+	frappe.local.response["home_page"] = info.home_page_link or "/desk#home-page"
 
 def add_remark_in_journal_entry_account(self,method):
 	gl_entry=[]

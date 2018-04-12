@@ -23,29 +23,7 @@ $(document).ready(function() {
 
 
 
-// $('.page-container').on('load', function() {
-// 	$('.page-container:visible').children('.page-head:visible').prependTo('.layout-main-section:visible');
-// 	$('.set-filters .btn').removeClass('text-muted');
-// });
 
-// document.body.addEventListener('DOMSubtreeModified', function () {
-// 	if ($(!'.page-head .page-head-moved')) {
-// 		$('div.page-container > .page-head').prependTo('.layout-main-section');
-// 	}
-// }, false);
-// 		$('.page-container:visible').children('.page-head:visible').prependTo('.layout-main-section:visible');
-// 		$('.set-filters .btn').removeClass('text-muted');
-// 		console.log('hi')
-// 	}
-//    }, false);
-//    document.body.addEventListener('DOMSubtreeModified', function () {
-// 	if($('.page-container > .page-head')) {
-// 		$('.page-container:visible').children('.page-head:visible').prependTo('.layout-main-section:visible');
-// 		$('.set-filters .btn').removeClass('text-muted');
-// 		console.log('hi')
-// 	}
-//    }, false);
-//    if (element2.parentNode == element1)
 frappe.provide("flexone");
 
 // add toolbar icon
@@ -79,27 +57,6 @@ flexone.set_user_background = function(src, selector, style){
 	}));
 }
 
-// flexone.desk_2 = function(){
-// 	if(!selector) selector = "#page-desktop";
-// 	if(!style) style = "Fill Screen";
-// 	if(src) {
-// 		if (window.cordova && src.indexOf("http") === -1) {
-// 			src = frappe.base_url + src;
-// 		}
-// 		var background = repl('background: url("%(src)s") center center;', {src: src});
-// 	} else {
-// 		var background = "background-color: #FFFFFF;";
-// 	}
-
-// 	frappe.dom.set_style(repl('%(selector)s { \
-// 		%(background)s \
-// 		%(style)s \
-// 	}', {
-// 		selector:selector,
-// 		background:background,
-// 		style: ""
-// 	}));
-// }
 
 frappe.templates["logo"] = '<a href="https://www.flexsofts.com/" target="_blank" class="logo">'
 +     ' <span class="logo-mini"><b>or</b></span>'

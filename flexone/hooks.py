@@ -16,20 +16,10 @@ app_license = "MIT"
 
 # include js, css files in header of desk.html
 app_include_css = [
-    "/assets/flexone/css/origintheme.css",
-    "/assets/flexone/css/skin-origin.css",
-    "/assets/flexone/css/custom.css",
-    "/assets/flexone/css/temp.css",
-	"/assets/flexone/css/flexone_custom.css",
-"/assets/flexone/css/flexone_dashboard.css",
-        #"/assets/flexone/css/ionicons.min.css",
-        #"/assets/flexone/css/AdminLTE.min.css",
-        #"/assets/flexone/css/_all-skins.min.css",
-    
+    "assets/css/flexone.min.css"  
 ]
 app_include_js = [
-    "/assets/flexone/js/origintheme.js",
-    "/assets/flexone/js/custom.js",
+    "assets/js/flexone.min.js",
     "/assets/js/flexone-template.min.js",
 ]
 
@@ -38,7 +28,7 @@ web_include_css = "/assets/flexone/css/flexone-web.css"
 # web_include_js = "/assets/flexone/js/flexone.js"
 
 # login
-on_session_creation = "flexone.install.on_session_creation"
+on_session_creation = "flexone.api.on_session_creation"
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
