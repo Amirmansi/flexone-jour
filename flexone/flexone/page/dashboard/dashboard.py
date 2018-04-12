@@ -56,21 +56,12 @@ def total_sales():
 		return 'Total Sales',data
 
 @frappe.whitelist()
-def check_sales_invoice_data():
-	company = erpnext.get_default_company()
-	start_date = frappe.db.sql("""select min(posting_date) from `tabSales Invoice` where company = %s""", (company))[0][0] or today()
-	custom_filter = {'from_date': start_date ,'to_date': today(),'company': company}
-	check_data=frappe.db.sql("""SELECT count(name) FROM `tabSales Invoice` WHERE `tabSales Invoice`.docstatus = 1 and company = %s and posting_date >= %s and posting_date <= %s  """, (company,start_date,today()))[0][0] 
-	return check_data	
-
-@frappe.whitelist()
 def due_amount():
 	company = erpnext.get_default_company()
 	start_date = frappe.db.sql("""select min(posting_date) from `tabSales Invoice` where company = %s""", (company))[0][0] or today()
 	custom_filter = {'from_date': start_date ,'to_date': today(),'company': company}
 	check_data=frappe.db.sql("""SELECT count(name) FROM `tabSales Invoice` WHERE `tabSales Invoice`.docstatus = 1 and company = %s and posting_date >= %s and posting_date <= %s  """, (company,start_date,today()))[0][0] 
 	if check_data==0:
-		print(check_data)
 		return 'Due Amount',0
 	else:
 		report = frappe.get_doc('Report', "Sales Register") 
