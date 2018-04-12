@@ -30,7 +30,7 @@ make: function () {
 
     me.render_widget("total_sales");
     me.render_widget("total_collection");
-		me.render_widget("due_amount");
+	//	me.render_widget("due_amount");
 		me.render_date_widget("current_date");
    	me.render_chart("profit_and_loss_chart");
 	  me.render_pie_chart("top_10_customer_outstanding");
