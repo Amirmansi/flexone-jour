@@ -32,8 +32,8 @@ make: function () {
     me.render_widget("total_collection");
 		me.render_widget("due_amount");
 		me.render_date_widget("current_date");
-   	me.render_chart("profit_and_loss_chart");
-	  me.render_pie_chart("top_10_customer_outstanding");
+		me.render_chart("profit_and_loss_chart");
+		me.render_outstanding_chart("top_10_customer_outstanding");
 	  me.render_email_digest($container);
 	  me.render_item_table($container);
   },
@@ -46,7 +46,6 @@ make: function () {
       })
       .then(function(r) {
         if (!r.exc && r.message) {
-			//me.message = null;
 			$container.find("#email-digest").html(r.message);
 
         }
@@ -94,8 +93,6 @@ render_result: function (items) {
 
 render_list_header: function () {
 	var me = this;
-	//const _selected_filter = me.options.selected_filter
-	//	.map(i => frappe.model.unscrub(i));
 	const fields = ['Name', 'Total Sales Amount'];
 
 	const html =
@@ -204,13 +201,12 @@ get_item_html: function (item) {
           if (data) {
             const chart = new Chart({
               parent: "#" + chart_id,
-             // title: chart_id.toUpperCase(),
               type: data.type,
               height:250,
               data: data.data,
               colors: ['#7cd6fd','#5e64ff','#743ee2'],
               format_tooltip_x: d => (d + '').toUpperCase(),
-              format_tooltip_y: d => d + ' pts'
+              format_tooltip_y: d => d 
             });
             $("#"+chart_id+"_title").html(__("Profit and Loss"));
           }
@@ -218,60 +214,41 @@ get_item_html: function (item) {
         }
       });
   },
-    
- render_pie_chart: function(chart_id) {
-    
-    frappe
-      .call({
-        method: "erpnext.utilities.page.leaderboard.leaderboard.get_leaderboard",
-        args: {
-          doctype: "Customer",
-          timespan: "Year",
-          company: frappe.defaults.get_default('company'),
-          field: "outstanding_amount",
-        }
-      })
-      .then(function(r) {
-        let results = r.message || [];
-        let graph_items = results.slice(0, 5);
+	 
+  render_outstanding_chart: function(chart_id) {
+		frappe.call({
+			method: "erpnext.utilities.page.leaderboard.leaderboard.get_leaderboard",
+			args: {
+				doctype: "Customer",
+				timespan: "Year",
+				company: frappe.defaults.get_default('company'),
+				field: "outstanding_amount",
+			},
+			callback: function (r) {
+				let results = r.message || [];
 
-        let args = {
-        parent: "#" + chart_id,
-        data: {
-          datasets: [
-            {
-              values:graph_items.map(d=>d.value) ,
-              type:'line',
-              label: graph_items.map(d=>d.name) 
-            }
-          ],
-          labels: graph_items.map(d=>d.name)
-        },
-        format_tooltip_x: d=>d["outstanding_amount"],
-        type: 'line', // or 'bar', 'line', 'pie', 'percentage'
-       height: 250,
-        colors: ['purple', '#ffa3ef', 'red'],
-        //maxLegendPoints: 5,    // default: 20
-        //maxSlices: 5,         // default: 20
-        lineOptions: {
-          dotSize: 50,          // default: 4
-          hideLine: 0,         // default: 0
-          hideDots: 0,         // default: 0
-          heatline: 10,         // default: 0
-          regionFill: 10        // default: 0
-        }
-      };
-      //graph_items.map(d=>d.name)
-      //graph_items.map(d=>d.name)
-      //
-      //args.data=[300, 210, 500, 375];
-      const chart =new Chart(args);
-    //  console.log(args.data)
+				let graph_items = results.slice(0, 10);
+				let args = {
+					parent: "#" + chart_id,
+					data: {
+						datasets: [
+							{
+								values: graph_items.map(d=>d.value)
+							}
+						],
+						labels: graph_items.map(d=>d.name)
+					},
+					colors: ['light-green'],
+					format_tooltip_x: d=>d["outstanding_amount"],
+					type: 'line',
+					height: 140
+				};
+				const chart =new Chart(args);
+				$("#outstanding_customer_header").html(__("Top 5 Outstanding Customer"));
+			}
+		});    
 
-    $("#outstanding_customer_header").html(__("Top 5 Outstanding Customer"));
-
-      });
-    },
+  },	
 	render_widget(function_name) {
     var me = this;
     const company = frappe.defaults.get_default('company');
