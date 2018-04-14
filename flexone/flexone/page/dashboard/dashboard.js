@@ -210,7 +210,7 @@ get_item_html: function (item) {
             });
             $("#"+chart_id+"_title").html(__("Profit and Loss"));
           }
-
+					$("#"+chart_id+"_title").html(__("Profit and Loss"));
         }
       });
   },
@@ -225,6 +225,7 @@ get_item_html: function (item) {
 				field: "outstanding_amount",
 			},
 			callback: function (r) {
+				if (r.message != undefined){
 				let results = r.message || [];
 
 				let graph_items = results.slice(0, 10);
@@ -246,6 +247,8 @@ get_item_html: function (item) {
 				const chart =new Chart(args);
 				$("#outstanding_customer_header").html(__("Top 5 Outstanding Customer"));
 			}
+			$("#outstanding_customer_header").html(__("Top 5 Outstanding Customer"));
+		}
 		});    
 
   },	
