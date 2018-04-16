@@ -270,13 +270,13 @@ render_chart: function (chart_id) {
 					var chart = c3.generate({
 						bindto: '#OutstandingCustomerChart',
 						data: inputdata,
-						// 	pie: {
-						// 		label: {
-						// 				format: function (value, ratio, id) {
-						// 						return value;
-						// 				}
-						// 		}
-						// }
+							pie: {
+								label: {
+										format: function (value, ratio, id) {
+												return value;
+										}
+								}
+						}
 					});
 					$("#outstanding_customer_header").html(__("Top 5 Outstanding Customer"));
 				}
