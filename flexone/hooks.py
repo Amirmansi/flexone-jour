@@ -21,7 +21,8 @@ app_include_css = [
 app_include_js = [
     "/assets/js/flexone.min.js",
     "/assets/js/flexone-template.min.js",
-    "/assets/js/flexone-chart.min.js",
+    "/assets/flexone/js/d3.min.js",
+    "/assets/flexone/js/c3.min.js"
 ]
 
 # include js, css files in header of web template
