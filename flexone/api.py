@@ -10,8 +10,9 @@ from frappe.sessions import Session
 
 @frappe.whitelist()
 def import_arabic_translation():
+	frappe.db.sql('delete from `tabTranslation`')
 	from frappe.core.doctype.data_import.data_import import import_file_by_path
-	import_file_by_path(path=frappe.utils.get_bench_path()+'/apps/flexone/flexone/public/translation/Translation.csv',ignore_links=False, overwrite=True, submit=False, pre_process=None, no_email=True)
+	import_file_by_path(path=frappe.utils.get_bench_path()+'/apps/flexone/flexone/public/translation/Translation.csv',ignore_links=False, overwrite=True,submit=False, pre_process=None, no_email=True)
 
 
 def on_session_creation(login_manager):
