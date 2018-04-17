@@ -215,6 +215,7 @@ render_chart: function (chart_id) {
 							axis: {
 								x: {
 									type: 'category',
+									
 								}
 							}
 						};
@@ -222,15 +223,19 @@ render_chart: function (chart_id) {
 							inputdata.columns[0].push(data.data.labels[i])
 						}
 						for (i = 0; i < data.data.datasets.length; i++) {
-							inputdata.columns[i + 1] = [data.data.datasets[i].title]
-							inputdata.colors[data.data.datasets[i].title] = cust_colors[i]
+							inputdata.columns[i + 1] = [__(data.data.datasets[i].title)]
+							inputdata.colors[__(data.data.datasets[i].title)] = cust_colors[i]
+							
 							for (d = 0; d < data.data.datasets[i].values.length; d++) {
 								inputdata.columns[i + 1].push(data.data.datasets[i].values[d].toString());
 							}
 						}
 						var chart = c3.generate({
 							bindto: '#ProfitLossChart',
-							data: inputdata
+							data: inputdata,
+							onrendered: function () {
+								$("g").attr("direction","ltr");
+							 }
 						});
 						$("#" + chart_id + "_title").html(__("Profit and Loss"));
 					}
@@ -262,7 +267,7 @@ render_chart: function (chart_id) {
 						label: true
 					};
 					for (i = 0; i < graph_items.length; i++) {
-						val = graph_items[i].name + "-" + graph_items[i].value
+						val = __(graph_items[i].name) + "-" + graph_items[i].value
 						inputdata.columns[i] = [val]
 						inputdata.colors[val] = cust_colors[i]
 						inputdata.columns[i].push(graph_items[i].value)
@@ -270,6 +275,9 @@ render_chart: function (chart_id) {
 					var chart = c3.generate({
 						bindto: '#OutstandingCustomerChart',
 						data: inputdata,
+						onrendered: function () {
+							$("g").attr("direction","ltr");
+						 },
 							pie: {
 								label: {
 										format: function (value, ratio, id) {
