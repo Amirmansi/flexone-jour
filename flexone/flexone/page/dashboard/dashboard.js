@@ -100,13 +100,13 @@ frappe.Dashboard = Class.extend({
 			<div class="list-item list-item--head" data-list-renderer="${"List"}">
 				${
 				fields.map(filter => {
-						const col = frappe.model.unscrub(filter);
+						const col = __(frappe.model.unscrub(filter));
 						return (
 							`<div class="leaderboard-item list-item_content ellipsis text-muted list-item__content--flex-2
 								header-btn-base
 								${(col && "Item".indexOf(col) !== -1) ? "text-right" : ""}">
 								<span class="list-col-title ellipsis">
-									${__(col)}
+									${col}
 								</span>
 							</div>`);
 					}).join("")
