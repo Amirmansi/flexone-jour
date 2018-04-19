@@ -93,14 +93,14 @@ frappe.Dashboard = Class.extend({
 
 	render_list_header: function () {
 		var me = this;
-		const fields = ['Name', 'Total Sales Amount'];
+		const fields = [__('Name'), __('Total Sales Amount')];
 
 		const html =
 			`<div class="list-headers">
 			<div class="list-item list-item--head" data-list-renderer="${"List"}">
 				${
 				fields.map(filter => {
-						const col = __(frappe.model.unscrub(filter));
+						const col = frappe.model.unscrub(filter);
 						return (
 							`<div class="leaderboard-item list-item_content ellipsis text-muted list-item__content--flex-2
 								header-btn-base
