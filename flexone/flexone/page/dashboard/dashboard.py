@@ -66,7 +66,8 @@ def due_amount():
 	custom_filter = {'from_date': start_date ,'to_date': today(),'company': company}
 
 	due_amount=0
-    label=_('DUE AMOUNT')
+	label=_('DUE AMOUNT')
+
 	if frappe.db.exists("""
 		SELECT 1 FROM `tabSales Invoice` 
 		WHERE `tabSales Invoice`.docstatus = 1 and 
