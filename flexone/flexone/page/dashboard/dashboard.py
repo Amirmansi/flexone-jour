@@ -22,12 +22,13 @@ def total_collection():
 	custom_filter = {'from_date': start_date,'to_date': end_date,'company': company}
 	report = frappe.get_doc('Report', "Sales Payment Summary") 
 	columns, data = report.get_data(filters = custom_filter, as_dict=True)
+	label=_('TOTAL COLLECTION')
 	if not data:
-		return 'Total Collection',0
+		return label,0
 	else:
 		sales_abbr="Sales - {}".format(frappe.db.get_value('Company', company, 'abbr'))	
 		list_of_total_payments = [i[_("Payments")] for i in data if _("Payments") in i]
-		return 'Total Collection',list_of_total_payments[-1]
+		return label,list_of_total_payments[-1]
 
 @frappe.whitelist()
 def profit_and_loss_chart():
@@ -40,6 +41,8 @@ def profit_and_loss_chart():
 	filters.accumulated_values=0
 	from erpnext.accounts.report.profit_and_loss_statement.profit_and_loss_statement import execute
 	a,b,c,chart=execute(filters)
+	for x in (chart['data']['datasets']):
+		x['title']=_(x['title'])
 	return chart
 	
 
@@ -50,10 +53,11 @@ def total_sales():
 	start_date = frappe.db.sql("""select min(posting_date) from `tabSales Invoice` where company = %s""", (company))[0][0] or today()
 	to_date=today()
 	data=frappe.db.sql("""SELECT sum(`tabSales Invoice`.base_net_total) AS sum FROM `tabSales Invoice` WHERE `tabSales Invoice`.docstatus = 1 and company = %s and posting_date >= %s and posting_date <= %s  """, (company,start_date,to_date))[0][0] 
+	label=_('TOTAL SALES')
 	if not data:
-		return 'Total Sales',0
+		return label,0
 	else:
-		return 'Total Sales',data
+		return label,data
 
 @frappe.whitelist()
 def due_amount():
@@ -62,7 +66,7 @@ def due_amount():
 	custom_filter = {'from_date': start_date ,'to_date': today(),'company': company}
 
 	due_amount=0
-
+    label=_('DUE AMOUNT')
 	if frappe.db.exists("""
 		SELECT 1 FROM `tabSales Invoice` 
 		WHERE `tabSales Invoice`.docstatus = 1 and 
@@ -73,7 +77,7 @@ def due_amount():
 		# sales_abbr="Sales - {}".format(frappe.db.get_value('Company', company, 'abbr'))	
 		list_of_total_outstanding_amount = [i[_("Outstanding Amount")] for i in data if _("Outstanding Amount") in i]
 		due_amount = list_of_total_outstanding_amount[-1]
-	return 'Due Amount', due_amount
+	return label, due_amount
 
 
 

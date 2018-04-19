@@ -106,7 +106,7 @@ frappe.Dashboard = Class.extend({
 								header-btn-base
 								${(col && "Item".indexOf(col) !== -1) ? "text-right" : ""}">
 								<span class="list-col-title ellipsis">
-									${col}
+									${__(col)}
 								</span>
 							</div>`);
 					}).join("")
