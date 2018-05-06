@@ -197,6 +197,7 @@ render_top5items_chart: function (chart_id) {
 		.then(function (r) {
 			if (!r.exc && r.message) {
 				let data = r.message;
+				salestrans=__('Sales');
 				if (data) {
 					cust_colors = ['#ff9600', '#ffe100', '#ff0000', '#ff5b00', '#e084f9']
 					var inputdata = {
@@ -208,6 +209,9 @@ render_top5items_chart: function (chart_id) {
 						type: 'bar',
 						colors: {
 							Sales: function (d) {
+								return cust_colors[d.index]
+							},
+							salestrans: function (d) {
 								return cust_colors[d.index]
 							}
 						},
