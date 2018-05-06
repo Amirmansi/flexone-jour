@@ -36,7 +36,6 @@ frappe.Dashboard = Class.extend({
 		me.render_outstanding_chart("top_10_customer_outstanding");
 		me.render_top5items_chart("top_5_items_chart");
 		me.render_email_digest($container);
-	//	me.render_item_table($container);
 	},
 
 	render_email_digest: function ($container) {
@@ -52,143 +51,6 @@ frappe.Dashboard = Class.extend({
 				}
 			});
 	},
-
-	render_item_table: function ($container) {
-		var me = this;
-		$("#moving_item_header").html(__("Top 5 Items"));
-
-		frappe
-			.call({
-				method: "flexone.flexone.page.dashboard.dashboard.top_moving_items"
-			})
-			.then(function (r) {
-				if (!r.exc && r.message) {
-					me.message = null;
-					$container.find(".leaderboard-list").html(me.render_list_view(r.message));
-
-				}
-			});
-	},
-
-	render_list_view: function (items = []) {
-		var me = this;
-
-		var html =
-			`${me.render_message()}
-		 <div class="result" style="${me.message ? "display:none;" : ""}">
-			 ${me.render_result(items)}
-		 </div>`;
-
-		return $(html);
-	},
-
-	render_result: function (items) {
-		var me = this;
-
-		var html =
-			`${me.render_list_header()}
-		${me.render_list_result(items)}`;
-
-		return html;
-	},
-
-	render_list_header: function () {
-		var me = this;
-		const fields = [__('Name'), __('Total Sales Amount')];
-
-		const html =
-			`<div class="list-headers">
-			<div class="list-item list-item--head" data-list-renderer="${"List"}">
-				${
-				fields.map(filter => {
-						const col = frappe.model.unscrub(filter);
-						return (
-							`<div class="leaderboard-item list-item_content ellipsis text-muted list-item__content--flex-2
-								header-btn-base
-								${(col && "Item".indexOf(col) !== -1) ? "text-right" : ""}">
-								<span class="list-col-title ellipsis">
-									${col}
-								</span>
-							</div>`);
-					}).join("")
-				}
-			</div>
-		</div>`;
-		return html;
-	},
-
-	render_list_result: function (items) {
-		var me = this;
-
-		let _html = items.map((item, index) => {
-			const $value = $(me.get_item_html(item));
-
-			let item_class = "";
-			if (index == 0) {
-				item_class = "first";
-			} else if (index == 1) {
-				item_class = "second";
-			} else if (index == 2) {
-				item_class = "third";
-			}
-			const $item_container = $(`<div class="list-item-container  ${item_class}">`).append($value);
-			return $item_container[0].outerHTML;
-		}).join("");
-
-		let html =
-			`<div class="result-list">
-			<div class="list-items">
-				${_html}
-			</div>
-		</div>`;
-
-		return html;
-	},
-
-	render_message: function () {
-		var me = this;
-
-		let html =
-			`<div class="no-result text-center" style="${me.message ? "" : "display:none;"}">
-			<div class="msg-box no-border">
-				<p>No Item found</p>
-			</div>
-		</div>`;
-
-		return html;
-	},
-
-	get_item_html: function (item) {
-		var me = this;
-		const company = frappe.defaults.get_default('company');
-		const currency = frappe.get_doc(":Company", company).default_currency;
-		const fields = ['name', 'value'];
-
-		const html =
-		`<div class="list-item">
-			${
-		fields.map(col => {
-				let val = item[col];
-				if(col=="name") {
-					var formatted_value = `<a class="grey list-id ellipsis" 
-						href="#Form/${"Item"}/${item["name"]}"> ${val} </a>`
-				} else {
-					var formatted_value = `<span class="text-muted ellipsis">
-						${("total_sales_amount".indexOf('qty') == -1) ? format_currency(val, currency) : val}</span>`
-				}
-
-				return (
-					`<div class="list-item_content ellipsis list-item__content--flex-2
-						${(col == "value") ? "text-right" : ""}">
-						${formatted_value}
-					</div>`);
-				}).join("")
-			}
-		</div>`;
-
-	return html;
-},
-
 render_top5items_chart: function (chart_id) {
 	frappe
 		.call({
@@ -197,8 +59,6 @@ render_top5items_chart: function (chart_id) {
 		.then(function (r) {
 			if (!r.exc && r.message) {
 				let data = r.message;
-				salestrans=__('Sales');
-				console.log(salestrans);
 				if (data) {
 					cust_colors = ['#ff9600', '#ffe100', '#ff0000', '#ff5b00', '#e084f9']
 					var inputdata = {
@@ -213,7 +73,6 @@ render_top5items_chart: function (chart_id) {
 								return cust_colors[d.index]
 							},
 							مبيعات: function (d) {
-								console.log('in')
 								return cust_colors[d.index]
 							}
 						},
