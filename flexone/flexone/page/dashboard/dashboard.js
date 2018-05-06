@@ -198,6 +198,7 @@ render_top5items_chart: function (chart_id) {
 			if (!r.exc && r.message) {
 				let data = r.message;
 				salestrans=__('Sales');
+				console.log(salestrans);
 				if (data) {
 					cust_colors = ['#ff9600', '#ffe100', '#ff0000', '#ff5b00', '#e084f9']
 					var inputdata = {
@@ -212,6 +213,7 @@ render_top5items_chart: function (chart_id) {
 								return cust_colors[d.index]
 							},
 							salestrans: function (d) {
+								console.log('in')
 								return cust_colors[d.index]
 							}
 						},
