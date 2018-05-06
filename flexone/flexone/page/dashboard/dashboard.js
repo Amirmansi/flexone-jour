@@ -34,8 +34,9 @@ frappe.Dashboard = Class.extend({
 		me.render_date_widget("current_date");
 		me.render_chart("profit_and_loss_chart");
 		me.render_outstanding_chart("top_10_customer_outstanding");
+		me.render_top5items_chart("top_5_items_chart");
 		me.render_email_digest($container);
-		me.render_item_table($container);
+	//	me.render_item_table($container);
 	},
 
 	render_email_digest: function ($container) {
@@ -188,6 +189,67 @@ frappe.Dashboard = Class.extend({
 	return html;
 },
 
+render_top5items_chart: function (chart_id) {
+	frappe
+		.call({
+			method: "flexone.flexone.page.dashboard.dashboard.top_moving_items"
+		})
+		.then(function (r) {
+			if (!r.exc && r.message) {
+				let data = r.message;
+				if (data) {
+					cust_colors = ['#ff9600', '#ffe100', '#ff0000', '#ff5b00', '#e084f9']
+					var inputdata = {
+						x: __('Items'),
+						columns: [
+							[],
+							[]
+						],
+						type: 'bar',
+						colors: {
+							Sales: function (d) {
+								return cust_colors[d.index]
+							}
+						},
+					};
+
+					inputdata.columns[0].push(__('Items'))
+					for (i = 0; i < data.length; i++) {
+						inputdata.columns[0].push(__(data[i].name))
+					}
+
+					inputdata.columns[1].push(__('Sales'))
+					for (i = 0; i < data.length; i++) {
+						inputdata.columns[1].push(data[i].value)
+					}
+
+					var chart = c3.generate({
+						bindto: '#Top5ItemsChart',
+						data: inputdata,
+						axis: {
+							x: {
+								type: 'category'
+							}
+						},
+						legend: {
+							show: false
+						},
+						bar: {
+							width: {
+								ratio: 0.5
+							}
+						},
+						onrendered: function () {
+							$("g").attr("direction", "ltr");
+						}
+					});
+
+					$("#" + chart_id + "_title").html(__("Top 5 Items"));
+				}
+				$("#" + chart_id + "_title").html(__("Top 5 Items"));
+			}
+		});
+},
 
 render_chart: function (chart_id) {
 		frappe
