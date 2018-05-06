@@ -212,7 +212,7 @@ render_top5items_chart: function (chart_id) {
 							Sales: function (d) {
 								return cust_colors[d.index]
 							},
-							salestrans: function (d) {
+							مبيعات: function (d) {
 								console.log('in')
 								return cust_colors[d.index]
 							}
