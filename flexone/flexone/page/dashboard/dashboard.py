@@ -82,7 +82,7 @@ def weekly_data():
 	company = erpnext.get_default_company()
 	doc_name=frappe.get_all('Email Digest', filters={'company': company,'frequency':'Weekly','name':('like', '%%Default Weekly Digest%%')}, fields=['name'])
 	#doc_name="Default Weekly Digest - "+company
-	if doc_name[0] is not None:
+	if len(doc_name) > 0:
 		doc=frappe.get_doc('Email Digest', doc_name[0].name)
 		doc.income_year_to_date=0
 		doc.expense_year_to_date=0
