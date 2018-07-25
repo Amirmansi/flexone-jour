@@ -61,23 +61,15 @@ def total_sales():
 
 @frappe.whitelist()
 def due_amount():
-	company = erpnext.get_default_company()
-	start_date = frappe.db.sql("""select min(posting_date) from `tabSales Invoice` where company = %s""", (company))[0][0] or today()
-	custom_filter = {'from_date': start_date ,'to_date': today(),'company': company}
-
+	from erpnext.accounts.report.accounts_receivable_summary.accounts_receivable_summary import execute
 	due_amount=0
 	label=_('DUE AMOUNT')
-
-	if frappe.db.exists("""
-		SELECT 1 FROM `tabSales Invoice` 
-		WHERE `tabSales Invoice`.docstatus = 1 and 
-		company = %s and posting_date >= %s and posting_date <= %s
-		""", (company,start_date,today())):
-		report = frappe.get_doc('Report', "Sales Register") 
-		columns, data = report.get_data(filters = custom_filter, as_dict=True)
-		# sales_abbr="Sales - {}".format(frappe.db.get_value('Company', company, 'abbr'))	
-		list_of_total_outstanding_amount = [i[_("Outstanding Amount")] for i in data if _("Outstanding Amount") in i]
-		due_amount = list_of_total_outstanding_amount[-1]
+	data = execute
+	print data
+	last_row=data.count()-1
+	last_row_data=data[last_row]
+	if last_row_data is not None:
+		due_amount = last_row_data[4]
 	return label, due_amount
 
 
@@ -94,14 +86,17 @@ def weekly_data():
 	doc_name=frappe.get_all('Email Digest', filters={'company': company,'frequency':'Weekly','name':('like', '%%Default Weekly Digest%%')}, fields=['name'])
 	#doc_name="Default Weekly Digest - "+company
 	doc=frappe.get_doc('Email Digest', doc_name[0].name)
-	doc.income_year_to_date=0
-	doc.expense_year_to_date=0
-	doc.issue=0
-	doc.project=0
-	doc.calendar_events=0
-	doc.todo_list=0
-	doc.notifications=0
-	doc.add_quote=0
-	doc.save()
-	html=get_digest_msg(doc.name)	
-	return html
+	if doc is not None:
+		doc.income_year_to_date=0
+		doc.expense_year_to_date=0
+		doc.issue=0
+		doc.project=0
+		doc.calendar_events=0
+		doc.todo_list=0
+		doc.notifications=0
+		doc.add_quote=0
+		doc.save()
+		html=get_digest_msg(doc.name)	
+		return html
+	else:
+		return 'Missing email digest'
