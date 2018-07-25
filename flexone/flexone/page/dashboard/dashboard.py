@@ -12,6 +12,8 @@ import datetime
 from frappe import _
 
 from erpnext.setup.doctype.email_digest.email_digest import get_digest_msg
+from erpnext.accounts.report.accounts_receivable_summary.accounts_receivable_summary import execute
+
 
 
 @frappe.whitelist()
@@ -61,16 +63,12 @@ def total_sales():
 
 @frappe.whitelist()
 def due_amount():
-	from erpnext.accounts.report.accounts_receivable_summary.accounts_receivable_summary import execute
 	due_amount=0
 	label=_('DUE AMOUNT')
-	data = execute
-	print data
-	last_row=data.count()-1
-	last_row_data=data[last_row]
-	if last_row_data is not None:
-		due_amount = last_row_data[4]
-	return label, due_amount
+	data = execute()
+	for i in data[1]:
+		due_amount=i[4]+due_amount
+	return due_amount
 
 
 
