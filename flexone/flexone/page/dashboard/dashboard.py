@@ -66,8 +66,9 @@ def due_amount():
 	due_amount=0
 	label=_('DUE AMOUNT')
 	data = execute()
-	for i in data[1]:
-		due_amount=i[4]+due_amount
+	if len(data[1]) > 0:
+		for i in data[1]:
+			due_amount=i[4]+due_amount
 	return label, due_amount
 
 
@@ -96,4 +97,4 @@ def weekly_data():
 		html=get_digest_msg(doc.name)	
 		return html
 	else:
-		return 'Missing email digest'
+		return 'Missing email digest with name -- '+'Default Weekly Digest -'+company
