@@ -68,8 +68,7 @@ def due_amount():
 	data = execute()
 	for i in data[1]:
 		due_amount=i[4]+due_amount
-	return due_amount
-
+	return label, due_amount
 
 
 @frappe.whitelist()
