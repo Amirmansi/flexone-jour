@@ -97,4 +97,4 @@ def weekly_data():
 		html=get_digest_msg(doc.name)	
 		return html
 	else:
-		return 'Missing email digest with name -- '+'Default Weekly Digest -'+company
+		return 'Missing email digest with name -- '+'Default Weekly Digest - '+company
